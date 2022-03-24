@@ -1,5 +1,6 @@
 import React from "react";
 import Todo from "../components/Todo";
+import { connect } from "react-redux"
 
 const Todolist = () => {
   return (
@@ -11,5 +12,12 @@ const Todolist = () => {
     </ul>
   );
 };
+const mapStateToProps = (state) => ({
+  todos: filterTodos(state.todos, state.filterTodo)
+});
 
-export default Todolist;
+const mapDispatchToProps = (dispatch) => ({
+  toggleTodo: (id) => dispatch(toggleTodo(id))
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(Todolist;

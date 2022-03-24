@@ -1,4 +1,10 @@
 import React from "react";
+import { connect } from "react-redux";
+
+const filter = (filter) => ({
+  type: "FILTER_TODO",
+  filter
+});
 
 const Link = ({ active, children, onClick }) => {
   return (
@@ -7,5 +13,13 @@ const Link = ({ active, children, onClick }) => {
     </button>
   );
 };
-
-export default Link;
+const mapStateToProps = (state, ownProps) => ({
+  active: ownProps.filter === state.visibilityFilter
+});
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  onClick: () => {
+    console.log("dispatch " + ownProps.filter);
+    dispatch(filter(ownProps.filter));
+  }
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Link);

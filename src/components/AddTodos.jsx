@@ -9,7 +9,7 @@ const addTodo = (text) => ({
   text
 });
 
-const AddTodo = ({ dispatch }) => {
+const AddTodos = ({ dispatch }) => {
   let input;
   let onClick = (e) => {
     if (input.value.trim() !== "") {
@@ -26,4 +26,4 @@ const AddTodo = ({ dispatch }) => {
   );
 };
 
-export default connect()(AddTodo);
+export default connect()(AddTodos);

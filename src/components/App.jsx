@@ -1,5 +1,8 @@
-import "../styles.css";
+import React from "react";
+import AddTodo from "./AddTodo";
+import TodoList from "./TodoList";
+import Link from "../components/Link";
 
-export default function App() {
-  return <div className="App">Hello</div>;
-}
+const App = () => <div></div>;
+
+export default App;
